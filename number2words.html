@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+
+    </head>
+<body>
+
+</body>
+<script>
+    let a=prompt();
+    convertnumber(a);
+    function convertnumber(a)
+    {
+
+    
+    if((a<0) || (a>9999999))
+    {
+        console.log("please enter below crore")
+    }
+    else
+    { 
+        var lakhs=Math.floor(a/100000);
+        a-=lakhs*100000;
+        //console.log(a);
+        var thousands=Math.floor(a/1000);
+        a-=thousands*1000;
+        //console.log(a);
+        var hundred=Math.floor(a/100);
+        a-=hundred*100;
+        //console.log(a);
+        var tn= Math.floor(a/10);
+        a-=tn*10;
+        //console.log(a);
+        var one=Math.floor(a%10);
+        a-=one*1;
+        //console.log(a);
+        result="";
+        if(lakhs>0)
+        {
+            result+=convertnumber(lakhs)+" lakh"
+            
+        }
+        if(thousands>0)
+        {
+            result+=(((result=="")?"":" ")+convertnumber(thousands)+"thousand")
+     
+
+        }
+        if(hundred>0)
+        {
+            result+=(((result=="")?"":" ")+convertnumber(hundred)+"hundred")
+            
+        }
+        var ones = Array("", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX","SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN","FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN","NINETEEN"); 
+        var tens = Array("", "", "TWENTY", "THIRTY", "FOURTY", "FIFTY", "SIXTY","SEVENTY", "EIGHTY", "NINETY"); 
+
+        if (tn>0 || one>0) 
+        { 
+            if (!(result=="")) 
+        { 
+            result += " AND "; 
+        } 
+        
+            if (tn < 2) 
+            { 
+            result += ones[tn * 10 + one]; 
+            } 
+            else 
+            { 
+
+                result += tens[tn];
+                if (one>0) 
+                { 
+                result += ("-" + ones[one]); 
+                } 
+
+            } 
+        }
+
+    console.log(result);
+    return result;
+    }
+  }
+
+    
+</script>
+</html>
